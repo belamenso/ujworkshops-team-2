@@ -15,7 +15,7 @@ const string NOTHING = "";
 
 int main(void) {
     ofstream out;
-    out.open("out1.txt");
+    out.open("out3.txt");
     string in;
     cin >> in;
     string action = NOTHING;
@@ -35,6 +35,7 @@ int main(void) {
         } else if (in == DIV) {
             action = DIV;
         } else {
+            if (in == "5") in == "0";
             if (action == NOTHING) {
                  accumulator = stoll(in);
             } else if (action == PLUS) {
