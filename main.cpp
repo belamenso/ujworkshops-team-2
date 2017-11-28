@@ -1,12 +1,16 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <math.h>
 
 using namespace std;
 
 const string PLUS = "+";
 const string MINUS = "-";
 const string EQ = "=";
+const string TIMES = "*";
+const string DIV = "/";
+const string EXP = "^";
 const string NOTHING = "";
 
 int main(void) {
@@ -15,7 +19,7 @@ int main(void) {
     string in;
     cin >> in;
     string action = NOTHING;
-    long long accumulator = stol(in);
+    long long accumulator = stoll(in);
     while (in != "==") {
         if (in == PLUS) {
             action = PLUS;
@@ -24,14 +28,26 @@ int main(void) {
         } else if (in == EQ) {
             out << accumulator << endl;
             action = NOTHING;
+        } else if (in == TIMES) {
+            action = TIMES;
+        } else if (in == EXP) {
+            action = EXP;
+        } else if (in == DIV) {
+            action = DIV;
         } else {
             if (action == NOTHING) {
-                 accumulator = stol(in);
+                 accumulator = stoll(in);
             } else if (action == PLUS) {
-                // cout << stol(in);
-                accumulator += stol(in);
+                // cout << stoll(in);
+                accumulator += stoll(in);
             } else if (action == MINUS) {
-                accumulator -= stol(in);
+                accumulator -= stoll(in);
+            } else if (action == TIMES) {
+                accumulator *= stoll(in);
+            } else if (action == DIV) {
+                accumulator /= stoll(in);
+            } else if (action == EXP) {
+                accumulator = pow(accumulator, stoll(in));
             }
         }
         cin >> in;
