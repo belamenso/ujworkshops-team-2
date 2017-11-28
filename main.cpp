@@ -21,19 +21,11 @@ int main(void) {
     string action = NOTHING;
     long long accumulator = stoll(in);
     while (in != "==") {
-        if (in == PLUS) {
-            action = PLUS;
-        } else if (MINUS == in) {
-            action = MINUS;
+        if (in == PLUS || in == MINUS || in == TIMES || in == EXP || in == DIV) {
+            action = in;
         } else if (in == EQ) {
             cout << accumulator << endl;
             action = NOTHING;
-        } else if (in == TIMES) {
-            action = TIMES;
-        } else if (in == EXP) {
-            action = EXP;
-        } else if (in == DIV) {
-            action = DIV;
         } else {
             if (in == "5") in = "0";
             if (action == NOTHING) {
