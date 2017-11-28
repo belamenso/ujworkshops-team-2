@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -9,11 +10,11 @@ const string EQ = "=";
 const string NOTHING = "";
 
 int main(void) {
+    fstream out;
     string in;
     cin >> in;
     string action = NOTHING;
-    long long accumulator = 5;
-    accumulator = stoll(in);
+    long long accumulator = stol(in);
     while (in != "==") {
         if (in == PLUS) {
             action = PLUS;
@@ -22,15 +23,17 @@ int main(void) {
         } else if (in == EQ) {
             cout << accumulator << endl;
         } else {
-            // if (action == NOTHING) {
-            //     accumulator = stol(in);
-            if (action == PLUS) {
-                accumulator += stoll(in);
+            if (action == NOTHING) {
+                 accumulator = stol(in);
+            } else if (action == PLUS) {
+                // cout << stol(in);
+                accumulator += stol(in);
             } else if (action == MINUS) {
-                accumulator -= stoll(in);
+                accumulator -= stol(in);
             }
         }
         cin >> in;
     }
+    cout << accumulator << endl;
     return 0;
 }
