@@ -11,6 +11,7 @@ const string EQ = "=";
 const string TIMES = "*";
 const string DIV = "/";
 const string EXP = "^";
+const string WTF = "&";
 const string NOTHING = "";
 
 int main(void) {
@@ -21,7 +22,7 @@ int main(void) {
     string action = NOTHING;
     long long accumulator = stoll(in);
     while (in != "==") {
-        if (in == PLUS || in == MINUS || in == TIMES || in == EXP || in == DIV) {
+        if (in == PLUS || in == MINUS || in == TIMES || in == EXP || in == DIV || in == WTF) {
             action = in;
         } else if (in == EQ) {
             cout << accumulator << endl;
@@ -41,6 +42,11 @@ int main(void) {
                 accumulator /= stoll(in);
             } else if (action == EXP) {
                 accumulator = pow(accumulator, stoll(in));
+            } else if (action == WTF) {
+                if (accumulator % 4 == 0)
+                    accumulator *= stoll(in);
+                else
+                    accumulator -= stoll(in);
             }
         }
         cin >> in;
