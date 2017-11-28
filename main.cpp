@@ -10,7 +10,8 @@ const string EQ = "=";
 const string NOTHING = "";
 
 int main(void) {
-    fstream out;
+    ofstream out;
+    out.open("out1.txt");
     string in;
     cin >> in;
     string action = NOTHING;
@@ -21,7 +22,8 @@ int main(void) {
         } else if (MINUS == in) {
             action = MINUS;
         } else if (in == EQ) {
-            cout << accumulator << endl;
+            out << accumulator << endl;
+            action = NOTHING;
         } else {
             if (action == NOTHING) {
                  accumulator = stol(in);
@@ -34,6 +36,7 @@ int main(void) {
         }
         cin >> in;
     }
-    cout << accumulator << endl;
+    out << accumulator << endl;
+    out.close();
     return 0;
 }
