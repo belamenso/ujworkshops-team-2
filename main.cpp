@@ -35,7 +35,7 @@ int main(void) {
         } else if (in == DIV) {
             action = DIV;
         } else {
-            if (in == "5") in == "0";
+            if (in == "5") in = "0";
             if (action == NOTHING) {
                  accumulator = stoll(in);
             } else if (action == PLUS) {
