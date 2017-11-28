@@ -15,7 +15,7 @@ const string NOTHING = "";
 
 int main(void) {
     ofstream out;
-    out.open("out1.txt");
+    out.open("out2.txt");
     string in;
     cin >> in;
     string action = NOTHING;
