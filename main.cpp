@@ -29,24 +29,25 @@ int main(void) {
             action = NOTHING;
         } else {
             if (in == "5") in = "0";
+            long long num = stoll(in);
             if (action == NOTHING) {
-                 accumulator = stoll(in);
+                 accumulator = num;
             } else if (action == PLUS) {
-                // cout << stoll(in);
-                accumulator += stoll(in);
+                // cout << num;
+                accumulator += num;
             } else if (action == MINUS) {
-                accumulator -= stoll(in);
+                accumulator -= num;
             } else if (action == TIMES) {
-                accumulator *= stoll(in);
+                accumulator *= num;
             } else if (action == DIV) {
-                accumulator /= stoll(in);
+                accumulator /= num;
             } else if (action == EXP) {
-                accumulator = pow(accumulator, stoll(in));
+                accumulator = pow(accumulator, num);
             } else if (action == WTF) {
                 if (accumulator % 4 == 0)
-                    accumulator *= stoll(in);
+                    accumulator *= num;
                 else
-                    accumulator -= stoll(in);
+                    accumulator -= num;
             }
         }
         cin >> in;
