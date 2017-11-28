@@ -14,8 +14,8 @@ const string EXP = "^";
 const string NOTHING = "";
 
 int main(void) {
-    ofstream out;
-    out.open("out3.txt");
+    // ofstream out;
+    // out.open("out3.txt");
     string in;
     cin >> in;
     string action = NOTHING;
@@ -26,7 +26,7 @@ int main(void) {
         } else if (MINUS == in) {
             action = MINUS;
         } else if (in == EQ) {
-            out << accumulator << endl;
+            cout << accumulator << endl;
             action = NOTHING;
         } else if (in == TIMES) {
             action = TIMES;
@@ -53,7 +53,7 @@ int main(void) {
         }
         cin >> in;
     }
-    out << accumulator << endl;
-    out.close();
+    cout << accumulator << endl;
+    // out.close();
     return 0;
 }
